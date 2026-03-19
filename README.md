@@ -156,8 +156,7 @@ Step 6 — Disbursement
    Wallet credit or direct bank transfer — within minutes
 ```
 <p align="center">
-  <img src="docs/assets/hn
-    .png" width="100%" alt="GigShield AI — System Architecture"/>
+  <img src="docs/assets/hn.png" width="100%" alt="GigShield AI — System Architecture"/>
 </p>
 ---
 
