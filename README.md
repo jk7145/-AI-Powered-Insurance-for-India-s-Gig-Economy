@@ -157,7 +157,7 @@ Step 6 — Disbursement
 ```
 <p align="center">
   <img src="docs/assets/hn
-    .jpeg" width="100%" alt="GigShield AI — System Architecture"/>
+    .png" width="100%" alt="GigShield AI — System Architecture"/>
 </p>
 ---
 
