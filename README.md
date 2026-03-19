@@ -60,6 +60,8 @@ City Grid (H3 Hexagons)
 │   ⬡ ⬡ ⬡ ⬡ ⬡ ⬡ ⬡                   │
 └──────────────────────────────────────┘
 
+
+```
 <p align="center">
   <img
     src="docs/assets/Screenshot 2026-03-19 at 11.39.24 AM.png"
@@ -75,7 +77,6 @@ City Grid (H3 Hexagons)
     alt="GigShield AI — Disruption Triggered"
   />
 </p>
-```
 
 **Signals mapped into H3:**
 - 📍 Worker GPS location (live)
