@@ -194,6 +194,10 @@ GigShield AI exists so that Tuesday never goes uncompensated again.
 
 GigShield is built across **9 layered microservices**, each responsible for a distinct domain — from real-time signal ingestion to hyper-local geospatial matching, ML-driven pricing, and instant payouts.
 
+<p align="center">
+  <img src="docs/assets/arch.jpeg" width="100%" alt="GigShield AI — System Architecture"/>
+</p>
+
 ---
 
 ## 1️⃣ Client Layer — GigShield Mobile App
