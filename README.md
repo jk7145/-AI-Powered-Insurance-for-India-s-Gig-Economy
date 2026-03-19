@@ -469,3 +469,136 @@ The worker's app dashboard refreshes to reflect the complete outcome.
 💸 Payout Executed (Wallet / Bank)
 ↓
 📱 Worker Dashboard Updated
+
+
+---
+
+## 🎯 Why GigShield AI Stands Out
+
+GigShield AI is not another insurance product with a digital front end.
+It is a ground-up rethink of how protection should work for the gig economy —
+precise, automated, fair, and built entirely around the worker.
+
+| Advantage | What it means in practice |
+|---|---|
+| ✅ Hyper-local H3 precision | Payouts are triggered at street-block level — not city-wide guesses |
+| ✅ AI-driven fairness | Every premium and every payout is computed by data, not discretion |
+| ✅ Fraud-resistant by design | 5-signal verification means no single data point can game the system |
+| ✅ Fully automated claims | Zero forms, zero calls, zero waiting — the system acts before the worker even asks |
+| ✅ Worker-centric design | Built for people who earn per delivery, not per month |
+| ✅ Scalable for the gig economy | Architected to expand across cities, platforms, and disruption types |
+
+---
+
+## 🌍 Impact
+
+GigShield AI is more than a product — it is infrastructure for a fairer gig economy.
+
+### 🛡️ Financial safety net for gig workers
+For the first time, delivery workers have a reliable income floor. A bad weather
+week no longer means a bad earnings week. Workers can take to the road knowing
+that if the city shuts down, their income does not.
+
+### ⚖️ Fair compensation model
+Payouts are calculated against each worker's personal earnings baseline — not
+a flat rate. A worker who earns ₹8,000 a week is compensated proportionally
+to their actual loss, not handed a token amount that ignores their real impact.
+
+### 📈 Scalable insurance innovation
+The H3 + parametric model is city-agnostic and platform-agnostic. What works
+in Mumbai works in Bengaluru, Delhi, and Hyderabad — and the same architecture
+extends to auto-rickshaw drivers, hyperlocal couriers, and any gig category
+where income is disruption-sensitive.
+
+### 🤝 Trust between workers and platforms
+When workers know they are protected, they stay on the platform longer, work
+more confidently, and churn less. GigShield AI turns income protection into
+a retention and loyalty tool for the platforms themselves.
+
+---
+
+## 🔮 Future Scope
+
+GigShield AI is built to grow. The foundation is live — what follows is the
+roadmap for what comes next.
+
+---
+
+### 🎛️ Personalised Coverage Builder
+
+> *Choose exactly what you need. Pay only for what you pick.*
+
+Today, workers choose from preset plans. Tomorrow, they will build their own.
+
+The **Coverage Builder** will allow every worker to configure their protection
+from the ground up — selecting the disruption types they want covered, setting
+their own payout thresholds, and locking in the premium that fits their weekly
+budget.
+```
+Worker opens Coverage Builder
+        ↓
+Selects disruption types to cover:
+  ☑️  Heavy rain & floods
+  ☑️  AQI spikes
+  ☐  Traffic blockages       ← opted out
+  ☑️  Curfews & zone shutdowns
+        ↓
+Sets payout threshold:
+  Earnings drop > 30% → trigger payout
+        ↓
+AI computes personalised premium
+        ↓
+Worker confirms & activates plan
+```
+
+**What this unlocks:**
+- Workers in coastal cities can prioritise flood coverage
+- Workers in industrial zones can weight AQI protection higher
+- Part-time workers can select lighter, lower-cost plans
+- Every plan is unique — priced to the individual, not the category
+
+---
+
+### 🏆 Rewards Wallet
+
+> *The safer you work, the more you earn back.*
+
+GigShield AI will introduce a **Rewards Wallet** — a loyalty layer that
+turns consistent, disruption-free weeks into tangible financial benefits.
+
+| Reward Trigger | What the worker earns |
+|---|---|
+| 🟢 No claim for 4 consecutive weeks | Cashback on next premium |
+| ⭐ High delivery consistency score | Bonus wallet credits |
+| 🔰 Early adopter milestone | One-time premium discount |
+| 📅 12-month active membership | Annual loyalty bonus payout |
+| 🤝 Referral — new worker joins | Referral credit added to wallet |
+
+**Wallet credits can be used to:**
+- Offset the next week's premium
+- Boost coverage tier for a single high-risk week
+- Withdraw as cash once a minimum balance is reached
+
+> The Rewards Wallet transforms GigShield AI from a safety net into
+> an active financial tool — one that rewards workers for consistency
+> and keeps them engaged beyond the claim moment.
+
+---
+
+### 🔭 What Else Is Coming
+
+| Feature | Description |
+|---|---|
+| 🏙️ Multi-city expansion | Roll out H3 grid and trigger engine to Bengaluru, Delhi, Hyderabad, Chennai |
+| 🚗 Multi-platform support | Extend beyond Swiggy & Zomato to Blinkit, Zepto, Dunzo, Porter |
+| 📊 Worker earnings dashboard | Weekly income analytics, disruption history, and trend insights |
+| 🤖 Conversational claims assistant | WhatsApp / in-app AI assistant to explain claims in local language |
+| 🏦 Credit score integration | Use GigShield payment history to build a gig worker credit profile |
+| 🌐 Open API for platforms | Let Swiggy and Zomato embed GigShield protection natively in their apps |
+
+---
+
+> GigShield AI starts with income protection.
+> It ends with financial inclusion for every gig worker in India.
+
+---
