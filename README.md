@@ -155,7 +155,10 @@ Step 5 — Parametric trigger fires
 Step 6 — Disbursement
    Wallet credit or direct bank transfer — within minutes
 ```
-
+<p align="center">
+  <img src="docs/assets/hn
+    .jpeg" width="100%" alt="GigShield AI — System Architecture"/>
+</p>
 ---
 
 ## 💡 Why GigShield AI Wins
