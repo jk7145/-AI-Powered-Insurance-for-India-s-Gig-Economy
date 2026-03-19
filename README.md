@@ -77,9 +77,9 @@ City Grid (H3 Hexagons)
 
 <p align="center">
   <img
-    src="docs/assets/Screenshot%202026-03-19%20at%2011.39.24%20AM.png"
+    src="docs/assets/h31.png"
     width="100%"
-    alt="GigShield AI — H3 Geospatial Grid, normal state"
+    alt="GigShield AI — H3 Geospatial Grid"
   />
 </p>
 
@@ -89,7 +89,7 @@ City Grid (H3 Hexagons)
 
 <p align="center">
   <img
-    src="docs/assets/Screenshot%202026-03-19%20at%2011.39.58%20AM.png"
+    src="docs/assets/h32.png"
     width="100%"
     alt="GigShield AI — Disruption triggered, payout fired"
   />
