@@ -64,15 +64,15 @@ City Grid (H3 Hexagons)
 ```
 <p align="center">
   <img
-    src="docs/assets/Screenshot 2026-03-19 at 11.39.24 AM.png"
+    src="docs/assets/Screenshot%202026-03-19%20at%2011.39.24%20AM.png"
     width="100%"
-    alt="GigShield AI — H3 Geospatial Trigger Engine"
+    alt="GigShield AI — H3 Normal View"
   />
 </p>
 
 <p align="center">
   <img
-    src="docs/assets/Screenshot 2026-03-19 at 11.39.58 AM.png"
+    src="docs/assets/Screenshot%202026-03-19%20at%2011.39.58%20AM.png"
     width="100%"
     alt="GigShield AI — Disruption Triggered"
   />
