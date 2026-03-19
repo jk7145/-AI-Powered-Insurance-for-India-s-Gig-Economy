@@ -62,11 +62,13 @@ City Grid (H3 Hexagons)
 
 
 ```
+### 🔷 H3 Trigger Engine — Interactive Demo
+
 <p align="center">
   <img
     src="docs/assets/Screenshot%202026-03-19%20at%2011.39.24%20AM.png"
     width="100%"
-    alt="GigShield AI — H3 Normal View"
+    alt="GigShield AI — H3 Geospatial Grid, normal state"
   />
 </p>
 
@@ -74,9 +76,19 @@ City Grid (H3 Hexagons)
   <img
     src="docs/assets/Screenshot%202026-03-19%20at%2011.39.58%20AM.png"
     width="100%"
-    alt="GigShield AI — Disruption Triggered"
+    alt="GigShield AI — Disruption triggered, payout fired"
   />
 </p>
+
+<p align="center">
+  <a href="https://jk7145.github.io/-AI-Powered-Insurance-for-India-s-Gig-Economy/">
+    <img src="https://img.shields.io/badge/%E2%96%B6%20Open%20Live%20Demo-Interactive%20H3%20Map-2563eb?style=for-the-badge"/>
+  </a>
+</p>
+
+> *Top — normal city grid with active gig workers mapped to their H3 zones.*
+> *Bottom — disruption event triggered, affected workers flagged for payout.*
+
 
 **Signals mapped into H3:**
 - 📍 Worker GPS location (live)
