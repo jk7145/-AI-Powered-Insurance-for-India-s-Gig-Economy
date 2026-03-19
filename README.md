@@ -329,3 +329,143 @@ Mobile App ← Payout status & claim updates
 | Data pipeline | Event streaming via message queue |
 | Storage | Domain-isolated microservice DBs |
 | Deployment | Cloud-native, auto-scaling |
+
+## 🔄 System Workflow — End to End
+
+> From the moment a worker signs up to the moment a payout lands in their
+> wallet, here is exactly what GigShield AI does — and how.
+
+---
+
+### Step 1 — Worker Onboarding
+
+The worker downloads the GigShield AI app and completes a one-time setup.
+
+- Registers with their name, phone number, and city
+- Links their Swiggy or Zomato account via OAuth
+- Grants GPS permission for zone-level tracking
+- Identity is verified and a worker profile is created in the systemWorker → Mobile App → OAuth Link → Platform Account → Profile Created
+
+---
+
+### Step 2 — Weekly Premium Calculation
+
+Every Monday, the AI engine recalculates a personalised risk premium for
+each worker.
+
+- Historical earnings, zone, delivery hours, and disruption frequency are analysed
+- A dynamic weekly premium is computed — workers in high-risk zones pay slightly more
+- Worker selects a coverage plan (basic / standard / full) via the app
+- Premium is deducted from the linked payment method or walletAI Risk Model → Disruption Probability Score → Premium Amount → Worker Selects Plan
+
+---
+
+### Step 3 — Continuous Data Ingestion
+
+The platform runs 24/7, pulling live signals from multiple external sources.
+
+| Signal | Source |
+|---|---|
+| 🌧️ Weather & AQI | Weather APIs, pollution monitoring feeds |
+| 🚦 Traffic conditions | Maps APIs, road closure databases |
+| 📦 Worker activity | Delivery platform APIs (earnings, GPS, ride status) |
+| 🏛️ Civic disruptions | Government APIs, verified news feeds |
+
+All signals are normalised and mapped into the **H3 hexagonal city grid**
+in real time.
+
+---
+
+### Step 4 — Disruption Detection
+
+The H3 Trigger Engine continuously scans the city grid for disruption events.
+
+- Incoming signals are overlaid onto H3 hexagonal cells
+- If a disruption threshold is crossed in any cell (e.g. rainfall > 40mm/hr,
+  AQI > 300), that cell is flagged as **disrupted**
+- Worker GPS traces are matched against flagged cells
+- If a worker's active zone overlaps with a disrupted zone → **trigger condition met**Signal Feed → H3 Mapping → Zone Disruption Flagged → Worker Zone Overlap → Trigger Fired
+
+---
+
+### Step 5 — Impact Verification
+
+Before any claim is created, the AI verification layer runs a **5-point check**
+to confirm the worker was genuinely impacted.┌─────────────────────────────────────────────────────┐
+│            Impact Verification Checks               │
+├─────────────────────────────────────────────────────┤
+│  ✅  Worker was active during the disruption window  │
+│  ✅  GPS confirms presence inside affected H3 zone   │
+│  ✅  Delivery route was demonstrably disrupted       │
+│  ✅  Activity drop detected vs. baseline             │
+│  ✅  Peer-zone anomaly corroborates the event        │
+└─────────────────────────────────────────────────────┘
+
+All five checks must pass. Any mismatch flags the claim for review.
+
+---
+
+### Step 6 — Claim Decision
+
+The ML model and rule engine evaluate the full verification output.
+
+- Confidence score is generated from all five signals combined
+- If score clears the threshold → claim is **approved automatically**
+- If score is borderline → claim is **flagged for manual review**
+- If signals contradict → claim is **rejected with reason logged**Verification Output → ML Confidence Score → Approve / Review / Reject
+
+---
+
+### Step 7 — Claim Creation
+
+If the decision is approved, a claim record is auto-generated — no worker
+action required.
+
+- Claim ID is created and linked to the worker's profile
+- Disruption event, zone, timestamp, and payout amount are recorded
+- Worker receives an in-app notification: *"Your claim has been approved"*
+- Full claim details are available in the app dashboardDecision: Approved → Claim Record Generated → Worker Notified → Logged to Claims DB
+
+---
+
+### Step 8 — Payout Execution
+
+Funds are disbursed instantly via the payment layer.
+
+- Payout amount is calculated based on earnings baseline and coverage plan
+- Transferred to worker's in-app wallet or directly to their bank account
+- Transaction is recorded in the ledger for full auditability
+- Worker receives a payout confirmation notificationClaim Approved → Payout Calculated → Wallet / Bank Transfer → Transaction Logged
+
+---
+
+### Step 9 — Dashboard Update
+
+The worker's app dashboard refreshes to reflect the complete outcome.
+
+- Payout amount and claim status are displayed
+- Disruption event details are shown (zone, time, cause)
+- Earnings protection summary is updated for the week
+- Historical claim and payout records remain accessible at any timePayout Executed → Dashboard Synced → Worker Views Status → Record Stored
+
+---
+
+### 🔁 Complete Flow at a Glance👷 Worker Onboards
+↓
+🧠 AI Calculates Weekly Premium
+↓
+📡 Live Data Ingested (Weather · AQI · Traffic · Activity)
+↓
+🔷 H3 Engine Detects Disrupted Zone
+↓
+📍 Worker GPS Matched to Disrupted Hex
+↓
+✅ 5-Point AI Verification Runs
+↓
+⚖️  ML Claim Decision (Approve / Review / Reject)
+↓
+📋 Claim Auto-Created
+↓
+💸 Payout Executed (Wallet / Bank)
+↓
+📱 Worker Dashboard Updated
