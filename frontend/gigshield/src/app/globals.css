@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f3ee;
+  --foreground: #2f241d;
+  --muted: #7a6d63;
+  --card: #fffdfa;
+  --card-2: #f3ece4;
+  --border: #e8ddd2;
+  --primary: #7b5e47;
+  --primary-dark: #5f4634;
+  --accent: #b08968;
+  --accent-soft: #efe2d3;
+  --success: #3f6f57;
+  --warning: #b7791f;
+  --danger: #b55454;
+  --shadow: 0 18px 50px rgba(104, 82, 63, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at top left, rgba(176, 137, 104, 0.14), transparent 26%),
+    radial-gradient(circle at top right, rgba(146, 123, 103, 0.08), transparent 22%),
+    linear-gradient(180deg, #fbf8f4 0%, #f6f0e8 100%);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.shell-card {
+  background: rgba(255, 253, 250, 0.88);
+  border: 1px solid rgba(232, 221, 210, 0.95);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.soft-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(104, 82, 63, 0.08);
+}
+
+.soft-panel {
+  background: linear-gradient(180deg, #fffdfa 0%, #f8f1e9 100%);
+  border: 1px solid var(--border);
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  border: 1px solid transparent;
+  transition: 0.22s ease;
+  box-shadow: 0 12px 24px rgba(123, 94, 71, 0.18);
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(123, 94, 71, 0.24);
+}
+
+.secondary-btn {
+  background: #fffdfa;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  transition: 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background: #f7efe7;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.section-subtitle {
+  color: var(--muted);
+}
+
+.gradient-heading {
+  background: linear-gradient(135deg, #3d2f25 0%, #7b5e47 45%, #b08968 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.field {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: #fffdfa;
+  padding: 0.95rem 1rem;
+  color: var(--foreground);
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.field::placeholder {
+  color: #9a8e84;
+}
+
+.field:focus {
+  border-color: #c7a98b;
+  box-shadow: 0 0 0 4px rgba(176, 137, 104, 0.12);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.badge-neutral {
+  background: #f3ebe2;
+  color: #6e5846;
+}
+
+.badge-success {
+  background: #e7f3ec;
+  color: var(--success);
+}
+
+.badge-warning {
+  background: #fff4dd;
+  color: var(--warning);
+}
+
+.badge-danger {
+  background: #fde8e8;
+  color: var(--danger);
+}
+
+.status-approved {
+  background: #e7f3ec;
+  color: var(--success);
+}
+
+.status-pending {
+  background: #fff4dd;
+  color: var(--warning);
+}
+
+.status-rejected {
+  background: #fde8e8;
+  color: var(--danger);
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-shell {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.table-scroll table {
+  min-width: 760px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d5c5b6;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
