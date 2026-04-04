@@ -24,7 +24,11 @@ import ClaimsTab from "@/components/tabs/ClaimsTab";
 import PremiumTab from "@/components/tabs/PremiumTab";
 import AlertsTab from "@/components/tabs/AlertsTab";
 import PlaceholderTab from "@/components/tabs/PlaceholderTab";
+import AIModel from "@/components/tabs/AIModel";
 import { api, setAuthToken } from "@/lib/api";
+import Geo from "@/components/tabs/geo";
+import Data from "@/components/tabs/data";
+import Engine from "@/components/tabs/engine";
 
 const initialRegisterForm = {
   fullName: "",
@@ -515,10 +519,10 @@ export default function HomePage() {
       case "claims":    return <ClaimsTab claims={claims} />;
       case "premium":   return <PremiumTab worker={worker} onUpdated={loadData} onLocalPlanUpdate={handleLocalPlanUpdate} isDemo={isDemo} />;
       case "alerts":    return <AlertsTab alerts={alerts} />;
-      case "map":       return <PlaceholderTab title="H3 Geospatial Map Module" description="Disrupted hex zones, worker location markers, zone overlap detection, and live geospatial activity can be shown here." />;
-      case "data":      return <PlaceholderTab title="Data Ingestion & Monitoring Module" description="Weather feeds, AQI feeds, traffic ingestion status, normalized event logs, and pipeline monitoring can be shown here." />;
-      case "ai":        return <PlaceholderTab title="AI Premium & Risk Insights Module" description="Prediction models, worker risk scoring, premium confidence, and explainability charts can be shown here." />;
-      case "payouts":   return <PlaceholderTab title="Claims Engine & Payout Module" description="Trigger rules, verification checks, approval states, payout execution, and transaction timelines can be implemented here." />;
+      case "map":       return <Geo title="H3 Geospatial Map Module" description="Disrupted hex zones, worker location markers, zone overlap detection, and live geospatial activity can be shown here." />;
+      case "data":      return <Data title="Data Ingestion & Monitoring Module" description="Weather feeds, AQI feeds, traffic ingestion status, normalized event logs, and pipeline monitoring can be shown here." />;
+      case "ai":        return <AIModel title="AI Premium & Risk Insights Module" description="Prediction models, worker risk scoring, premium confidence, and explainability charts can be shown here." />;
+      case "payouts":   return <Engine title="Claims Engine & Payout Module" description="Trigger rules, verification checks, approval states, payout execution, and transaction timelines can be implemented here." />;
       default:          return null;
     }
   }, [activeTab, worker, claims, alerts, isDemo]);

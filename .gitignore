@@ -28,4 +28,6 @@ Thumbs.db
 .idea/
 
 # misc
-*.tsbuildinfo
+*.tsbuildinfo__pycache__/
+*.pyc
+*.pkl
