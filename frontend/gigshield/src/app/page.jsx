@@ -402,71 +402,111 @@ export default function HomePage() {
   const [registerForm, setRegisterForm] = useState(initialRegisterForm);
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
 
-  useEffect(() => {
-    const token = localStorage.getItem("gigshield_token");
-    const savedDemo = localStorage.getItem("gigshield_demo");
-    if (savedDemo === "true") { loadDemoData(); return; }
-    if (token) { setAuthToken(token); loadData(); }
-  }, []);
+ useEffect(() => {
+  const token = localStorage.getItem("gigshield_token");
+  const isDemoUser = localStorage.getItem("gigshield_demo");
 
-  const loadDemoData = () => {
-    setIsDemo(true);
-    setWorker(mockWorker);
-    setClaims(mockClaims);
-    setAlerts(mockAlerts);
-    setScreen("dashboard");
-  };
+  // ✅ Restore demo
+  if (isDemoUser) {
+    loadDemoData();
+    return;
+  }
+
+  // ✅ Only run if token exists
+  if (!token) return;
+
+  setAuthToken(token);
+
+  loadData().then(() => setScreen("dashboard"));
+
+  const interval = setInterval(loadData, 10000);
+  return () => clearInterval(interval);
+}, []);
 
   const loadData = async () => {
-    try {
-      const [meRes, claimsRes, alertsRes] = await Promise.all([
-        api.get("/worker/me"),
-        api.get("/worker/claims"),
-        api.get("/worker/alerts")
-      ]);
-      setIsDemo(false);
-      setWorker(meRes.data);
-      setClaims(claimsRes.data);
-      setAlerts(alertsRes.data);
-      setScreen("dashboard");
-    } catch (error) {
-      console.error(error);
-      setWorker(null); setClaims([]); setAlerts([]);
-      setScreen("landing");
+  try {
+    const token = localStorage.getItem("gigshield_token"); // ✅ ensure token
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    };
+
+    const [dashboardRes, claimsRes, alertsRes] = await Promise.all([
+      api.get("/worker/dashboard", config),
+      api.get("/worker/claims", config),
+      api.get("/worker/alerts", config)
+    ]);
+
+    setWorker(dashboardRes.data.worker);
+    setClaims(claimsRes.data);
+    setAlerts(alertsRes.data);
+  } catch (err) {
+    console.error("Load data error:", err.response?.status);
+
+    if (err.response?.status === 401) {
+      logout();
     }
-  };
+  }
+};
 
   const handleRegister = async () => {
-    try {
-      setLoading(true); setMessage("");
-      const res = await api.post("/auth/register", registerForm);
-      setAuthToken(res.data.token);
-      localStorage.removeItem("gigshield_demo");
-      await loadData();
-    } catch (error) {
-      setMessage(error?.response?.data?.message || "Registration failed");
-    } finally { setLoading(false); }
-  };
+  try {
+    setLoading(true);
+    setMessage("");
+
+    const res = await api.post("/auth/register", registerForm);
+
+    setAuthToken(res.data.token);
+    localStorage.setItem("gigshield_token", res.data.token); // 🔥 IMPORTANT
+
+    await loadData();
+
+    setScreen("dashboard"); // ✅ ADD THIS
+  } catch (error) {
+    setMessage(error?.response?.data?.message || "Registration failed");
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleLogin = async () => {
-    try {
-      setLoading(true); setMessage("");
-      const res = await api.post("/auth/login", loginForm);
-      setAuthToken(res.data.token);
-      localStorage.removeItem("gigshield_demo");
-      await loadData();
-    } catch (error) {
-      setMessage(error?.response?.data?.message || "Login failed");
-    } finally { setLoading(false); }
-  };
+  try {
+    setLoading(true);
+    setMessage("");
+
+    const res = await api.post("/auth/login", loginForm);
+
+    setAuthToken(res.data.token);
+    localStorage.setItem("gigshield_token", res.data.token); // 🔥 IMPORTANT
+
+    await loadData();
+
+    setScreen("dashboard"); // ✅ ADD THIS
+  } catch (error) {
+    setMessage(error?.response?.data?.message || "Login failed");
+  } finally {
+    setLoading(false);
+  }
+};
 
   const logout = () => {
-    setAuthToken(null);
-    localStorage.removeItem("gigshield_demo");
-    setWorker(null); setClaims([]); setAlerts([]);
-    setIsDemo(false); setActiveTab("dashboard");
-    setMode("login"); setScreen("landing");
-  };
+  setAuthToken(null);
+
+  // ✅ remove BOTH
+  localStorage.removeItem("gigshield_token");
+  localStorage.removeItem("gigshield_demo");
+
+  setWorker(null);
+  setClaims([]);
+  setAlerts([]);
+
+  setIsDemo(false);
+  setActiveTab("dashboard");
+  setMode("login");
+  setScreen("landing");
+};
 
   const handleLocalPlanUpdate = (coveragePlan, weeklyPremium) => {
     setWorker((prev) => ({ ...prev, coveragePlan, weeklyPremium }));

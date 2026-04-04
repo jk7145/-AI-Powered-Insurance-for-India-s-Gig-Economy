@@ -49,6 +49,9 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+require("./src/jobs/alertJob");  
+require("./src/jobs/claimJob"); 
+
 /**
  * ✅ API Routes
  */
