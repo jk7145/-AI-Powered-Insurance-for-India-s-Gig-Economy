@@ -24,6 +24,9 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+require("./src/jobs/alertJob");  
+require("./src/jobs/claimJob"); 
+
 app.use("/api/auth", authRoutes);
 app.use("/api/worker", workerRoutes);
 
